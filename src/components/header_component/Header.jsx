@@ -155,7 +155,6 @@ const Header = () => {
                         endIcon={<PersonIcon />}>
                     Sign In
                 </Button>
-
                           </AppBar>
 
         </div> 
