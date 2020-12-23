@@ -5,11 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import logo from '../../logo.png';
-import { Accordion, CssBaseline } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import AppleIcon from '@material-ui/icons/Apple';
 import './Hero.css';
+const com_logo = process.env.PUBLIC_URL + '/assets/images/';
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -19,22 +20,28 @@ const useStyles = makeStyles((theme) => ({
   },
   heroButtons: {
     margin: theme.spacing(1),
-    border:'1px solid #1a1a1a',
+    border:'1px solid #fff',
+    color:'#fff',
 
     '&:hover, &:focus': {
-      backgroundColor: '#1a1a1a',
+      backgroundColor: '#4ec477',
       color:'#fff'
     },
-    position:'relative',
-    top:"190px",
-    left:"-250px",
+    float:'left'
+  },
+  btnposition:{
+    position:'absolute',
+    width:'380px',
+    bottom:'50px',
+    left:'110px',
+    zIndex:'3',
   },
   carousel:{
     zIndex:"1",
     display:'flex',
     justifyContent:'center',
     textAlign:'center',
-    height:'300px',
+    height:'350px',
     width:'100%',
     backgroundColor:'#4ec477',
     color:'#fff',
@@ -50,28 +57,29 @@ const Hero = () => {
     <div>
       <CssBaseline />
       <Carousel className={classes.carousel} data-ride="carousel" >
-          <CarouselItem>
-                <Button className={classes.heroButtons}
-                        variant="outlined"
-                        size="large"
-                        endIcon={<PlayArrowRoundedIcon />} >
+          <CarouselItem style={{height:'100%',position:'relative'}}>
+                <img style={{width:'100%',height:'100%',position:'relative',zIndex:'2'}} src={`${com_logo}slider_1.jpg`}/>
+                <div className={classes.btnposition}>
+                  <Button className={classes.heroButtons}
+                          variant="outlined"
+                          size="large"
+                          endIcon={<PlayArrowRoundedIcon />} >
+                      Get in on <br />
+                      Google Play
+                  </Button>
+                  <Button className={classes.heroButtons}
+                          variant="outlined"
+                          size="large"
+                          endIcon={<AppleIcon />} >
                     Get in on <br />
-                    Google Play
-                </Button>
-                <Button className={classes.heroButtons}
-                        variant="outlined"
-                        size="large"
-                        endIcon={<AppleIcon />} >
-                  Get in on <br />
-                  App Store
-                </Button>
-                        Slide 1 
+                    App Store
+                  </Button>
+                </div>
+                
           </CarouselItem>          
-          <CarouselItem>Slide 2</CarouselItem>
-          <CarouselItem>Slide 3</CarouselItem>
-          <CarouselItem>Slide 4</CarouselItem>
-          <CarouselItem>Slide 5</CarouselItem>
-          <CarouselItem>Slide 5</CarouselItem>
+          <CarouselItem style={{height:'100%'}}><img style={{width:'100%',height:'100%'}} src={`${com_logo}slider_2.jpg`}/></CarouselItem>
+          <CarouselItem style={{height:'100%'}}><img style={{width:'100%',height:'100%'}} src={`${com_logo}slider_3.jpg`}/></CarouselItem>
+          <CarouselItem style={{height:'100%'}}><img style={{width:'100%',height:'100%'}} src={`${com_logo}slider_4.jpg`}/></CarouselItem>
       </Carousel> 
     
     </div>

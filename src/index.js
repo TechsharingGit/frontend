@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './bootstrap.min.css';
 import './index.css';
+import '../src/master.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

@@ -1,0 +1,47 @@
+.footer_title h3 {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #424242;
+}
+.text-cenetr {
+  text-align: center;
+}
+.socialLink li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.socialLink li .fa {
+  float: left;
+  font-size: 26px;
+}
+.socialLink li .fa-facebook-square {
+  color: #2f42a0;
+}
+.socialLink li .fa-google-plus-square {
+  color: #d14b38;
+}
+.socialLink li .fa-linkedin-square {
+  color: #006294;
+}
+.socialLink li .fa-instagram {
+  color: #f22a9c;
+}
+.socialLink li .fa-twitter-square {
+  color: #27dee2;
+}
+
+.socialLink li .fa-facebook-square:hover {
+  color: #0e2494;
+}
+.socialLink li .fa-google-plus-square:hover {
+  color: #c43723;
+}
+.socialLink li .fa-linkedin-square:hover {
+  color: #013854;
+}
+.socialLink li .fa-instagram:hover {
+  color: #ea0a8a;
+}
+.socialLink li .fa-twitter-square:hover {
+  color: #07797b;
+}

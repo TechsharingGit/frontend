@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Navbar, Nav, NavDropdown, Container ,Form, Button ,Row, Col} from 'react-bootstrap';
 import logo from '../../logo.png';
 import Typography from '@material-ui/core/Typography';
@@ -16,21 +16,22 @@ import Link from '@material-ui/core/Link';
 import PersonIcon from '@material-ui/icons/Person';
 import Icon from '@material-ui/core/Icon';
 import './Header.css';
+const com_logo = process.env.PUBLIC_URL + '/assets/images/';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   appBar:{
-    backgroundColor:'#F0FFFF',
+    backgroundColor:'#c7e5f9',
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   toolbar: {
-    minHeight: 128,
+    minHeight: '100px',
     alignItems: 'flex-end',
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(2),
+    paddingTop: '15px',
+    paddingBottom: '15px',
   },
   title: {
     flexGrow: 1,
@@ -39,15 +40,14 @@ const useStyles = makeStyles((theme) => ({
   button:{
     backgroundColor:'#4ec477',
     border: 0,
-    fontSize: 16,
+    fontSize: 12,
     borderRadius: 10,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
-    height: 48,
-    padding: '0 40px',
+    padding: '5px 10px',
     position:"absolute",
     right:"50px",
-    top:"20px"
+    top:"15px"
 
   },
   breadCrumbs:{
@@ -58,8 +58,8 @@ const useStyles = makeStyles((theme) => ({
   },
   breadCrumbs1:{
     position:"absolute",
-    top:"35px",
-    right:"230px",
+    top:"20px",
+    right:"125px",
 
   },
 
@@ -86,27 +86,66 @@ const StyledBreadcrumb = withStyles((theme) => ({
   },
 }))(Chip);
 
-function handleClick(event) {
-  event.preventDefault();
-  console.info('You clicked a breadcrumb.');
-}
-
 
 const Header = () => {
+
+  const [menupos,setMenupos] = useState(null);
+  const [hide,setHide] = useState('none');
+
+  useEffect(() => {
+    setHide('none');
+  },[]);
+
   const classes = useStyles();
+
+  const handleClick = (event) => {
+    event.preventDefault();
+  }
+
+  const menuOpen = (e)=>{
+    setMenupos(e.clientX-50);
+    setHide('block');
+  }
+
+  const menuclose = (e)=>{
+    e.preventDefault();
+    setHide('none');
+    console.log(hide);
+  }
+
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.appBar}>
-                <Toolbar className={classes.toolbar} >  
-                  <Breadcrumbs className={classes.breadCrumbs} aria-label="breadcrumb" seperator=">" style={{padding:"30px"}}>
-                <StyledBreadcrumb component="a" href="#" label="Director Message"  style={{textDecoration:"none"}} />
-                <StyledBreadcrumb component="a" href="#" label="School Partner's" style={{textDecoration:"none"}}/>
-                <StyledBreadcrumb component="a" href="#" label="Functions" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px"}}/>} onDelete={handleClick} style={{textDecoration:"none"}}/>      
-                <StyledBreadcrumb component="a" href="#" label="Course Details"  style={{textDecoration:"none"}} />
-                <StyledBreadcrumb component="a" href="#" label="Student's Corner"  style={{textDecoration:"none"}} />
-                <StyledBreadcrumb component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
-            </Breadcrumbs>
-            <Breadcrumbs className={classes.breadCrumbs1} aria-label="breadcrumb" seperator=">" >
+                <Toolbar className={classes.toolbar} > 
+
+                <Typography component="a" className={logo}>
+                    <img style={{width:'65%'}} src={`${com_logo}logo.png`}/>
+                  </Typography>
+
+                  <Breadcrumbs className={classes.breadCrumbs} aria-label="breadcrumb" separator="|" style={{padding:"23px"}}>
+                    <StyledBreadcrumb component="a" href="#" label="Director Message"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb component="a" href="#" label="School Partner's" style={{textDecoration:"none"}}/>
+                    <StyledBreadcrumb component="a" href="#" label="Functions" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={menuOpen} style={{textDecoration:"none"}}/>  
+                    <StyledBreadcrumb component="a" href="#" label="Course Details"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb component="a" href="#" label="Student's Corner"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
+                </Breadcrumbs>
+                <ul style={{left:menupos,display:hide}} className="submenu">
+                  <li>
+                      <a href="#" onClick={menuclose}>Pathsala</a>
+                  </li>
+                  <li>
+                      <a href="#" onClick={menuclose}>E - Gyan</a>
+                  </li>
+                  <li>
+                      <a href="#" onClick={menuclose}>Combridge Program</a>
+                  </li>
+                  <li>
+                      <a  href="#" onClick={menuclose}>Content Devlopment</a>
+                  </li>
+                </ul>
+
+            <Breadcrumbs className={classes.breadCrumbs1} aria-label="breadcrumb" separator="|" >
                 <StyledBreadcrumb component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
                 <StyledBreadcrumb component="a" href="#" label="Results"  style={{textDecoration:"none"}} />
                 <StyledBreadcrumb component="a" href="#" label="Career"  style={{textDecoration:"none"}} />
@@ -116,7 +155,8 @@ const Header = () => {
                         endIcon={<PersonIcon />}>
                     Sign In
                 </Button>
-          </AppBar>
+
+                          </AppBar>
 
         </div> 
     )

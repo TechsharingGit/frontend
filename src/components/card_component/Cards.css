@@ -1,0 +1,31 @@
+.featureBox {
+  background: #ddd;
+}
+.featureBox h3 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.featureBox .testImg img {
+  border: 10px solid #efefef;
+  border-radius: 5px;
+  width: 100%;
+}
+.featureBox .leftGrid {
+  width: 30%;
+  float: left;
+  margin-right: 20px;
+}
+.featureBox .rightGrid {
+  width: 65%;
+  float: left;
+}
+.featureBox .nameElm {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 18px;
+  color: #777;
+}
+.txt-cen {
+  text-align: center;
+}
