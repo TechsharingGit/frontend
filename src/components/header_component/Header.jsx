@@ -9,7 +9,9 @@ import { emphasize,
          ThemeProvider } from '@material-ui/core/styles';
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import AppBar from '@material-ui/core/AppBar';
+import { Menu, MenuItem } from "@material-ui/core";
+import NestedMenuItem from "material-ui-nested-menu-item";
+import AppBar from '@material-ui/core/AppBar'; 
 import Toolbar from '@material-ui/core/Toolbar'
 import Chip from '@material-ui/core/Chip';
 import Link from '@material-ui/core/Link';
@@ -88,29 +90,26 @@ const StyledBreadcrumb = withStyles((theme) => ({
 
 
 const Header = () => {
-
-  const [menupos,setMenupos] = useState(null);
-  const [hide,setHide] = useState('none');
-
-  useEffect(() => {
-    setHide('none');
-  },[]);
-
+  const [menuPosition, setMenuPosition] = useState(null);
   const classes = useStyles();
+
+  const handleRightClick = (event) => {
+    if (menuPosition) {
+      return;
+    }
+    event.preventDefault();
+    setMenuPosition({
+      top: event.pageY+20,
+      left: event.pageX-50
+    });
+  };
+
+  const handleItemClick = (event) => {
+    setMenuPosition(null);
+  };
 
   const handleClick = (event) => {
     event.preventDefault();
-  }
-
-  const menuOpen = (e)=>{
-    setMenupos(e.clientX-50);
-    setHide('block');
-  }
-
-  const menuclose = (e)=>{
-    e.preventDefault();
-    setHide('none');
-    console.log(hide);
   }
 
     return (
@@ -118,44 +117,64 @@ const Header = () => {
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar className={classes.toolbar} > 
 
-                <Typography component="a" className={logo}>
+                <Typography component="a">
                     <img style={{width:'65%'}} src={`${com_logo}logo.png`}/>
                   </Typography>
 
                   <Breadcrumbs className={classes.breadCrumbs} aria-label="breadcrumb" separator="|" style={{padding:"23px"}}>
-                    <StyledBreadcrumb component="a" href="#" label="Director Message"  style={{textDecoration:"none"}} />
-                    <StyledBreadcrumb component="a" href="#" label="School Partner's" style={{textDecoration:"none"}}/>
-                    <StyledBreadcrumb component="a" href="#" label="Functions" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={menuOpen} style={{textDecoration:"none"}}/>  
-                    <StyledBreadcrumb component="a" href="#" label="Course Details"  style={{textDecoration:"none"}} />
-                    <StyledBreadcrumb component="a" href="#" label="Student's Corner"  style={{textDecoration:"none"}} />
-                    <StyledBreadcrumb component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb className="menuList" component="a" href="#" label="Director Message"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb className="menuList" component="a" href="#" label="School Partner's" style={{textDecoration:"none"}}/>
+                    <StyledBreadcrumb className="menuList" component="a" href="#" label="Functions" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={handleRightClick} style={{textDecoration:"none"}}/>  
+                    <StyledBreadcrumb className="menuList" component="a" href="#" label="Course Details"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb className="menuList" component="a" href="#" label="Student's Corner"  style={{textDecoration:"none"}} />
+                    <StyledBreadcrumb className="menuList" component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
                 </Breadcrumbs>
-                <ul style={{left:menupos,display:hide}} className="submenu">
-                  <li>
-                      <a href="#" onClick={menuclose}>Pathsala</a>
-                  </li>
-                  <li>
-                      <a href="#" onClick={menuclose}>E - Gyan</a>
-                  </li>
-                  <li>
-                      <a href="#" onClick={menuclose}>Combridge Program</a>
-                  </li>
-                  <li>
-                      <a  href="#" onClick={menuclose}>Content Devlopment</a>
-                  </li>
-                </ul>
+                
+                <Menu
+                  open={!!menuPosition}
+                  onClose={() => setMenuPosition(null)}
+                  anchorReference="anchorPosition"
+                  anchorPosition={menuPosition}
+                >
+                  <MenuItem onClick={handleItemClick}>Button 1</MenuItem>
+                  <MenuItem onClick={handleItemClick}>Button 2</MenuItem>
+                  <NestedMenuItem className="submenu"
+                    label="Button 3"
+                    parentMenuOpen={!!menuPosition}
+                    onClick={handleItemClick}
+                  >
+                    <MenuItem onClick={handleItemClick}>Sub-Button 1</MenuItem>
+                    <MenuItem onClick={handleItemClick}>Sub-Button 2</MenuItem>
+                    <NestedMenuItem
+                      label="Sub-Button 3"
+                      parentMenuOpen={!!menuPosition}
+                      onClick={handleItemClick}
+                    >
+                      <MenuItem onClick={handleItemClick}>Sub-Sub-Button 1</MenuItem>
+                      <MenuItem onClick={handleItemClick}>Sub-Sub-Button 2</MenuItem>
+                    </NestedMenuItem>
+                  </NestedMenuItem>
+                  <MenuItem onClick={handleItemClick}>Button 4</MenuItem>
+                  <NestedMenuItem
+                    label="Button 5"
+                    parentMenuOpen={!!menuPosition}
+                    onClick={handleItemClick}
+                  >
+                    <MenuItem onClick={handleItemClick}>Sub-Button 1</MenuItem>
+                    <MenuItem onClick={handleItemClick}>Sub-Button 2</MenuItem>
+                  </NestedMenuItem>
+                </Menu>
+
 
             <Breadcrumbs className={classes.breadCrumbs1} aria-label="breadcrumb" separator="|" >
-                <StyledBreadcrumb component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
-                <StyledBreadcrumb component="a" href="#" label="Results"  style={{textDecoration:"none"}} />
-                <StyledBreadcrumb component="a" href="#" label="Career"  style={{textDecoration:"none"}} />
+                <StyledBreadcrumb className="menuList" component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
+                <StyledBreadcrumb className="menuList" component="a" href="#" label="Results"  style={{textDecoration:"none"}} />
+                <StyledBreadcrumb className="menuList" component="a" href="#" label="Career"  style={{textDecoration:"none"}} />
             </Breadcrumbs>
           </Toolbar>
-                <Button  className={classes.button}
-                        endIcon={<PersonIcon />}>
-                    Sign In
+                <Button className={classes.button}endIcon={<PersonIcon />}>Sign In
                 </Button>
-                          </AppBar>
+          </AppBar>
 
         </div> 
     )

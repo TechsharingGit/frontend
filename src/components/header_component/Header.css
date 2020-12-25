@@ -1,24 +1,23 @@
-.submenu {
-  display: none;
-  z-index: 5;
-  position: absolute;
-  top: 95px;
-  padding-top: 5px;
-  width: 150px;
+.MuiPopover-root ul {
+  width: 130px;
   background: #f5f5f5;
+  float: left;
+  padding: 5px 0px;
 }
-.submenu li {
+.MuiPopover-root li {
   width: 100%;
   float: left;
   margin-bottom: 3px;
-}
-.submenu li a {
   font-size: 13px;
   padding: 5px 10px;
-  width: 100%;
-  float: left;
   color: #424242;
 }
-.submenu li a:hover {
+.MuiPopover-root li:hover {
   background: #dad7d7;
+}
+.menuList {
+  background: none !important;
+}
+.menuList:hover {
+  background: #e0e0e0 !important;
 }

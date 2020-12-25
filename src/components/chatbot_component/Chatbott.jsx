@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Chatbot from 'react-chatbot-kit'; 
 import Button from '@material-ui/core/Button';
 import { emphasize, 
@@ -15,7 +15,9 @@ import './Chatbot.css';
 const useStyles = makeStyles((theme) => ({
 
     root :{
-        position:"absolute",
+        position:"fixed",
+        bottom:'-35px',
+        zIndex:'99',
     },
 
 chatBot : {
@@ -43,7 +45,13 @@ chatButton :{
 
 const Chatbott = () => {
 
-    const [showBot,toggleBot] = useState(true);
+    const [showBot,toggleBot] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            toggleBot(true);   
+        },5000)
+        
+    }, [])
     
 
     const classes = useStyles();

@@ -13,6 +13,9 @@ class MessageParser {
         if(lowercase.includes("functions")){
             this.actionProvider.optionsHandler();
         }
+        if(lowercase.includes("courses")){
+            this.actionProvider.learningHandler();    
+        }
     }
   }
   

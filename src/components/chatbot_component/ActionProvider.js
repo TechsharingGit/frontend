@@ -19,6 +19,24 @@ class ActionProvider {
       this.setChatBotMessage(message);
     }
 
+    learningHandler = () => 
+    {
+      const message = this.createChatBotMessage("Sure, below is the options?",{
+        widget:"learningOptions",
+      });
+      // console.log("Javascript");
+      this.setChatBotMessage(message);
+    }
+
+    listLinkHandler = (props) => {
+      const message = this.createChatBotMessage("Fantastic,I've got the following resources for you:",{
+        widget:"learninglist",
+        
+      });
+      
+      this.setChatBotMessage(message);
+    }
+
 
     setChatBotMessage = (message) => {
         this.setState((prevState) => ({ ...prevState,messages:[...prevState.messages,message]}))
