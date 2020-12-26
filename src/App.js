@@ -5,7 +5,7 @@ import Hero from './components/hero_component/Hero';
 import Cards from './components/card_component/Cards';
 import Chatbott from './components/chatbot_component/Chatbott';
 import Testimonials from './components/testimonials_component/Testimonials';
-import SignUp from './components/SigninAndSignUpComponent/SignUp/SignUp';
+// import SignUp from './components/SigninAndSignUpComponent/SignUp/SignUp';
 //import './App.css';
 
 const App = () => {
