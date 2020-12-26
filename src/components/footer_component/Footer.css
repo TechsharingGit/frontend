@@ -1,6 +1,6 @@
 .footer_title h3 {
   padding: 10px 0;
-  font-size: 18px;
+  font-size: 16px;
   color: #424242;
 }
 .text-cenetr {
@@ -29,7 +29,6 @@
 .socialLink li .fa-twitter-square {
   color: #27dee2;
 }
-
 .socialLink li .fa-facebook-square:hover {
   color: #0e2494;
 }
@@ -44,4 +43,23 @@
 }
 .socialLink li .fa-twitter-square:hover {
   color: #07797b;
+}
+
+@media only screen and (max-width: 640px) {
+  .container,
+  .container-sm {
+    width: 95% !important;
+    max-width: 95% !important;
+  }
+  .mob_m_b_20 {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container,
+  .container-sm {
+    width: 95% !important;
+    max-width: 95% !important;
+  }
 }

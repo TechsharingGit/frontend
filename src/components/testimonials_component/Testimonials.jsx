@@ -17,7 +17,7 @@ function Testimonials() {
     <section className="row_full testimonial pad_t_b_35">
         <div className="container">
             <div className="row disFlex">
-                <div className="col-sm-6">
+                <div className="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div className="row_full">
 
                     <h3>Testimonial</h3>
@@ -27,7 +27,7 @@ function Testimonials() {
                             <div className="row_full">
                                 <div className="leftGrid">
                                     <div className="row_full testImg">
-                                        <img src={`${iconPath}slider_1.jpg`}/>
+                                        <img src={`${iconPath}1.jpg`}/>
                                         <span className="row_full nameElm">Gyansutrm 1</span>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@ function Testimonials() {
                             <div className="row_full">
                                 <div className="leftGrid">
                                     <div className="row_full testImg">
-                                        <img src={`${iconPath}slider_1.jpg`}/>
+                                        <img src={`${iconPath}1.jpg`}/>
                                         <span className="row_full nameElm">Gyansutrm 2</span>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ function Testimonials() {
                             <div className="row_full">
                                 <div className="leftGrid">
                                     <div className="row_full testImg">
-                                        <img src={`${iconPath}slider_1.jpg`}/>
+                                        <img src={`${iconPath}1.jpg`}/>
                                         <span className="row_full nameElm">Gyansutrm 3</span>
                                     </div>
                                 </div>

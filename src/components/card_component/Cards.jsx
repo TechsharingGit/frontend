@@ -7,10 +7,10 @@ function Cards() {
         <div className="container">
             <div className="row_full">
                 <h3>Feature Section</h3>
-                <div className="col-4 float_l">
+                <div className="col col-sm-4 col-md-4 col-lg-4 col-xl-4 float_l mob_m_b_20">
                     <div className="row_full">
                         <div className="row_full testImg">
-                            <img src={`${iconPath}slider_1.jpg`}/>
+                            <img src={`${iconPath}2.jpg`}/>
                             <span className="row_full nameElm">Gyansutrm</span>
                         </div>
                         <div class="row_full testmText txt-cen">
@@ -18,10 +18,10 @@ function Cards() {
                         </div>
                     </div>
                 </div>
-                <div className="col-4 float_l">
+                <div className="col col-sm-4 col-md-4 col-lg-4 col-xl-4 float_l mob_m_b_20">
                     <div className="row_full">
                         <div className="row_full testImg">
-                            <img src={`${iconPath}slider_1.jpg`}/>
+                            <img src={`${iconPath}2.jpg`}/>
                             <span className="row_full nameElm">Gyansutrm</span>
                         </div>
                         <div class="row_full testmText txt-cen">
@@ -29,10 +29,10 @@ function Cards() {
                         </div>
                     </div>
                 </div>
-                <div className="col-4 float_l">
+                <div className="col col-sm-4 col-md-4 col-lg-4 col-xl-4 float_l">
                     <div className="row_full">
                         <div className="row_full testImg">
-                            <img src={`${iconPath}slider_1.jpg`}/>
+                            <img src={`${iconPath}2.jpg`}/>
                             <span className="row_full nameElm">Gyansutrm</span>
                         </div>
                         <div class="row_full testmText txt-cen">
