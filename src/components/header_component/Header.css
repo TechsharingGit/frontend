@@ -1,10 +1,9 @@
 div[role*="presentation"] ul[role*="menu"] {
-  width: 130px;
+  width: 150px;
   background: #f5f5f5;
   float: left;
   padding: 5px 0px;
 }
-
 div[role*="presentation"] li[role*="menuitem"] {
   width: 100%;
   float: left;
@@ -13,7 +12,6 @@ div[role*="presentation"] li[role*="menuitem"] {
   padding: 5px 10px;
   color: #424242;
 }
-
 div[role*="presentation"] li[role*="menuitem"]:hover {
   background: #dad7d7;
 }
@@ -33,6 +31,10 @@ div[role*="presentation"] li[role*="menuitem"]:hover {
 .mobmenuItem:hover {
   color: #fff !important;
   background: #0fc54e !important;
+}
+.MuiBreadcrumbs-separator {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
 }
 
 @media (min-width: 1024px) and (max-width: 1365px) {

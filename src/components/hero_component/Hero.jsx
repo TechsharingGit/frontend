@@ -29,13 +29,6 @@ const useStyles = makeStyles((theme) => ({
     },
     float:'left'
   },
-  btnposition:{
-    position:'absolute',
-    width:'380px',
-    bottom:'50px',
-    left:'110px',
-    zIndex:'3',
-  },
   carousel:{
     zIndex:"1",
     display:'flex',
@@ -59,7 +52,7 @@ const Hero = () => {
       <Carousel className={classes.carousel} data-ride="carousel" >
           <CarouselItem style={{height:'100%',position:'relative'}}>
                 <img style={{width:'100%',height:'100%',position:'relative',zIndex:'2'}} src={`${com_logo}slider_1.jpg`}/>
-                <div className={classes.btnposition}>
+                <div className="btnposition">
                   <Button className={classes.heroButtons}
                           variant="outlined"
                           size="large"

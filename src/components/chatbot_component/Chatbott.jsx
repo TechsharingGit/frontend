@@ -13,13 +13,6 @@ import './Chatbot.css';
 
 
 const useStyles = makeStyles((theme) => ({
-
-    root :{
-        position:"fixed",
-        bottom:'-35px',
-        zIndex:'99',
-    },
-
 chatBot : {
     textAlign : "center",
     backgroundColor: "#282c34",
@@ -28,17 +21,14 @@ chatBot : {
     justifyContent:"center",
     
 },
-
 chatButton :{
 
     padding:0,
-    minWidth:"40px",
-    position:"relative",
+    minWidth:"25px",
+    position:"absolute",
     zIndex:5,
-    top:"-18.5rem",
-    right:"-1280px"
-
-
+    top:"10px",
+    right:"10px"
 }
 
 }));
@@ -62,21 +52,23 @@ const Chatbott = () => {
     }
 
     return (
-        <div className={classes.root} style={{maxWidth:"300px"}}>
-        {showBot && (
-            <Chatbot className={classes.chatBot}
-                     config={config}
-                     messageParser={MessageParser}
-                     actionProvider={ActionProvider}        
-            />
-        )} 
-        <Button 
-                className={classes.chatButton} 
-                variant="contained"
-                 size="small"
-                 color="secondary"      
-                 style={{display : showBot ? "block" : "none" }} 
-                 onClick={clickHandler}>X</Button>         
+        <div className="chatBoxres">
+            <div style={{height:'100%',position:'relative'}} className="row_full">
+            {showBot && (
+                <Chatbot className={classes.chatBot}
+                        config={config}
+                        messageParser={MessageParser}
+                        actionProvider={ActionProvider}        
+                />
+            )} 
+            <Button 
+                    className={classes.chatButton} 
+                    variant="contained"
+                    size="small"
+                    color="secondary"      
+                    style={{display : showBot ? "block" : "none" }} 
+                    onClick={clickHandler}>X</Button>         
+            </div>
         </div>
     )
 }

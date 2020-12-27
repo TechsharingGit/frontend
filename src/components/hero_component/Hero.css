@@ -2,3 +2,20 @@
 .carousel-control-prev {
   z-index: 4;
 }
+.btnposition {
+  position: absolute;
+  width: 380px;
+  bottom: 50px;
+  left: 110px;
+  z-index: 3;
+}
+
+@media only screen and (max-width: 640px) {
+  .btnposition {
+    left: 20px;
+  }
+  .btnposition button {
+    font-size: 10px;
+    padding: 7px;
+  }
+}

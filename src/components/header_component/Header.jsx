@@ -1,9 +1,8 @@
 import React,{useState, useEffect} from 'react';
-import { Navbar, Nav, NavDropdown, Container ,Form, Button ,Row, Col} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import Typography from '@material-ui/core/Typography';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import { emphasize, withStyles, makeStyles,ThemeProvider } from '@material-ui/core/styles';
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import { emphasize, withStyles, makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Menu, MenuItem } from "@material-ui/core";
 import NestedMenuItem from "material-ui-nested-menu-item";
@@ -12,9 +11,16 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Chip from '@material-ui/core/Chip';
 import Link from '@material-ui/core/Link';
 import PersonIcon from '@material-ui/icons/Person';
-import Icon from '@material-ui/core/Icon';
 import {IconButton, Drawer} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+
 import './Header.css';
 
 const com_logo = process.env.PUBLIC_URL + '/assets/images/';
@@ -103,6 +109,11 @@ const StyledBreadcrumb = withStyles((theme) => ({
 
 const Header = () => {
   const [menuPosition, setMenuPosition] = useState(null);
+  const [menuPositionnews, setMenuPositionnews] = useState(null);
+  const [menuPositionform, setMenuPositionform] = useState(null);
+  const [menuPositionnew, setMenuPositionnew] = useState(null);
+  const [menuPositiontesti, setMenuPositiontesti] = useState(null);
+  const [open, setOpen] = React.useState(false);
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
@@ -122,19 +133,90 @@ const Header = () => {
   }, []);
   const classes = useStyles();
 
+  const nestedMenu = () => {
+    setOpen(!open);
+  };
   const handleRightClick = (event) => {
     if (menuPosition) {
       return;
     }
     event.preventDefault();
+    setMenuPositionnew(null);
+    setMenuPositionnews(null);
+    setMenuPositiontesti(null);
+    setMenuPositionform(null);
     setMenuPosition({
       top: event.pageY+20,
       left: event.pageX-50
     });
   };
 
-  const handleItemClick = (event) => {
+  const opennextMenunews = (event) => {
+    if (menuPositionnews) {
+      return;
+    }
+    event.preventDefault();
     setMenuPosition(null);
+    setMenuPositionform(null);
+    setMenuPositionnew(null);
+    setMenuPositiontesti(null);
+    setMenuPositionnews({
+      top: event.pageY+20,
+      left: event.pageX-50
+    });
+  };
+
+  const opennextMenu = (event) => {
+    if (menuPositionnew) {
+      return;
+    }
+    event.preventDefault();
+    setMenuPosition(null);
+    setMenuPositionnews(null);
+    setMenuPositionform(null);
+    setMenuPositiontesti(null);
+    setMenuPositionnew({
+      top: event.pageY+20,
+      left: event.pageX-50
+    });
+  };
+
+  const opennextMenucontact = (event) => {
+    if (menuPositionform) {
+      return;
+    }
+    event.preventDefault();
+    setMenuPosition(null);
+    setMenuPositionnews(null);
+    setMenuPositionnew(null);
+    setMenuPositiontesti(null);
+    setMenuPositionform({
+      top: event.pageY+20,
+      left: event.pageX-50
+    });
+  }; 
+
+  const opennextMenutesti = (event) => {
+    if (menuPositiontesti) {
+      return;
+    }
+    event.preventDefault();
+    setMenuPosition(null);
+    setMenuPositionnews(null);
+    setMenuPositionnew(null);
+    setMenuPositionform(null);
+    setMenuPositiontesti({
+      top: event.pageY+20,
+      left: event.pageX-50
+    });
+  }; 
+
+  const hidemenuf = (event) => {
+    setMenuPosition(null);
+    setMenuPositionnews(null); 
+    setMenuPositionform(null); 
+    setMenuPositionnew(null);
+    setMenuPositiontesti(null);
   };
 
   const handleClick = (event) => {
@@ -186,16 +268,52 @@ const Header = () => {
 
   const getDrawerChoices = () => {
     return (
-      <Link style={{textDecoration:"none"}}>
-        <MenuItem className="mobmenuItem">Director Message</MenuItem>
-        <MenuItem className="mobmenuItem">School Partner's</MenuItem>
-        <MenuItem className="mobmenuItem">Functions</MenuItem>
-        <MenuItem className="mobmenuItem">Course Details</MenuItem>
-        <MenuItem className="mobmenuItem">Student's Corner</MenuItem>
-        <MenuItem className="mobmenuItem">Results</MenuItem>
-        <MenuItem className="mobmenuItem">Career</MenuItem>
-        <MenuItem className="mobmenuItem">Sign In</MenuItem>
-      </Link>
+      <List component="nav">
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Director Message" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="School Partner's" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button onClick={nestedMenu}>
+        <ListItemText primary="Domains" />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItem button className={classes.nested}>
+            <ListItemText style={{padding:'0 10px'}} primary="Pathsala" />
+          </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemText style={{padding:'0 10px'}} primary="E - Gyan" />
+          </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemText style={{padding:'0 10px'}} primary="Cambridge Program" />
+          </ListItem>
+          <ListItem button className={classes.nested}>
+            <ListItemText style={{padding:'0 10px'}} primary="Content Development" />
+          </ListItem>
+        </List>
+      </Collapse>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Course Details" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Student's Corner" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Offerings" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Results" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Career" />
+      </ListItem>
+      <ListItem className="mobmenuItem" button>
+        <ListItemText primary="Sign In" />
+      </ListItem>
+    </List>
     );
 };
 
@@ -211,53 +329,111 @@ const Header = () => {
           <Typography component="a">
             <img style={{width:'60%'}} src={`${com_logo}logo.png`}/>
           </Typography>
-          <Breadcrumbs className={classes.breadCrumbs} aria-label="breadcrumb" separator="|" style={{padding:"23px 23px 10px 23px"}}>
+          <Breadcrumbs className={classes.breadCrumbs} aria-label="breadcrumb" separator="|" style={{padding:"23px 0px 10px 23px"}}>
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Director Message"  style={{textDecoration:"none"}} />
               <StyledBreadcrumb className="menuList" component="a" href="#" label="School Partner's" style={{textDecoration:"none"}}/>
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Functions" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={handleRightClick} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Domains" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={handleRightClick} style={{textDecoration:"none"}}/>  
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Course Details"  style={{textDecoration:"none"}} />
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Student's Corner"  style={{textDecoration:"none"}} />
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Student's Corner" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenu} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Free Study Material"  style={{textDecoration:"none"}} />
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="News & Events" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenunews} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Reach Us" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenucontact} style={{textDecoration:"none"}}/>  
           </Breadcrumbs>
           
+          <Menu
+            open={!!menuPositionform}
+            onClose={() => setMenuPositionform(null)}
+            anchorReference="anchorPosition"
+            anchorPosition={menuPositionform}>
+            <MenuItem onClick={hidemenuf}>Enquiry Forms</MenuItem>
+          </Menu>
+
+          <Menu
+            open={!!menuPositiontesti}
+            onClose={() => setMenuPositiontesti(null)}
+            anchorReference="anchorPosition"
+            anchorPosition={menuPositiontesti}>
+            <MenuItem onClick={hidemenuf}>Testimonials</MenuItem>
+          </Menu>
+
+          <Menu
+            open={!!menuPositionnews}
+            onClose={() => setMenuPositionnews(null)}
+            anchorReference="anchorPosition"
+            anchorPosition={menuPositionnews}>
+            <MenuItem onClick={hidemenuf}>Blogs</MenuItem>
+          </Menu>
+
           <Menu
             open={!!menuPosition}
             onClose={() => setMenuPosition(null)}
             anchorReference="anchorPosition"
             anchorPosition={menuPosition}
           >
-            <MenuItem  onClick={handleItemClick}>Button 1</MenuItem>
-            <MenuItem  onClick={handleItemClick}>Button 2</MenuItem>
-            <NestedMenuItem className="subMenu"
-              label="Button 3"
-              parentMenuOpen={!!menuPosition}
-              onClick={handleItemClick}
-            >
-              <MenuItem onClick={handleItemClick}>Sub-Button 1</MenuItem>
-              <MenuItem onClick={handleItemClick}>Sub-Button 2</MenuItem>
-              <NestedMenuItem
-                label="Sub-Button 3"
-                parentMenuOpen={!!menuPosition}
-                onClick={handleItemClick}
-              >
-                <MenuItem onClick={handleItemClick}>Sub-Sub-Button 1</MenuItem>
-                <MenuItem onClick={handleItemClick}>Sub-Sub-Button 2</MenuItem>
-              </NestedMenuItem>
-            </NestedMenuItem>
-            <MenuItem onClick={handleItemClick}>Button 4</MenuItem>
+            <MenuItem onClick={hidemenuf}>Pathsala</MenuItem>
+            <MenuItem onClick={hidemenuf}>E - Gyan</MenuItem>
+            <MenuItem onClick={hidemenuf}>Cambridge Program</MenuItem>
+            <MenuItem onClick={hidemenuf}>Content Development</MenuItem>
+            
+          </Menu>
+
+          <Menu
+            open={!!menuPositionnew}
+            onClose={() => setMenuPositionnew(null)}
+            anchorReference="anchorPosition"
+            anchorPosition={menuPositionnew}
+          >
+            <MenuItem onClick={hidemenuf}>Ask Your Question</MenuItem>
             <NestedMenuItem
-              label="Button 5"
-              parentMenuOpen={!!menuPosition}
-              onClick={handleItemClick}
+              label="Exams"
+              parentMenuOpen={!!menuPositionnew}
+              onClick={hidemenuf}
             >
-              <MenuItem onClick={handleItemClick}>Sub-Button 1</MenuItem>
-              <MenuItem onClick={handleItemClick}>Sub-Button 2</MenuItem>
+              <MenuItem onClick={hidemenuf}>NEET</MenuItem>
+              <NestedMenuItem
+                label="JEE"
+                parentMenuOpen={!!menuPositionnew}
+                onClick={hidemenuf}
+              >
+                <MenuItem onClick={hidemenuf}>MAINS</MenuItem>
+                <MenuItem onClick={hidemenuf}>ADVANCE</MenuItem>
+              </NestedMenuItem>
+
+              <MenuItem onClick={hidemenuf}>KVPY</MenuItem>
+              <MenuItem onClick={hidemenuf}>NTSE</MenuItem>
+              <MenuItem onClick={hidemenuf}>NSE</MenuItem>
+              <MenuItem onClick={hidemenuf}>OlYMPLADS</MenuItem>
+            </NestedMenuItem>
+            <MenuItem onClick={hidemenuf}>Expert Counselling</MenuItem>
+            <MenuItem onClick={hidemenuf}>College Rankings</MenuItem>
+            <MenuItem onClick={hidemenuf}>Ranki Predictor</MenuItem>
+            <MenuItem onClick={hidemenuf}>College Predictors</MenuItem>
+
+            <NestedMenuItem
+              label="Exam Results"
+              parentMenuOpen={!!menuPositionnew}
+              onClick={hidemenuf}
+            >
+              <MenuItem onClick={hidemenuf}>NEET</MenuItem>
+              <NestedMenuItem
+                label="JEE"
+                parentMenuOpen={!!menuPositionnew}
+                onClick={hidemenuf}
+              >
+                <MenuItem onClick={hidemenuf}>MAINS</MenuItem>
+                <MenuItem onClick={hidemenuf}>ADVANCE</MenuItem>
+              </NestedMenuItem>
+
+              <MenuItem onClick={hidemenuf}>KVPY</MenuItem>
+              <MenuItem onClick={hidemenuf}>NTSE</MenuItem>
+              <MenuItem onClick={hidemenuf}>NSE</MenuItem>
+              <MenuItem onClick={hidemenuf}>OlYMPLADS</MenuItem>
             </NestedMenuItem>
           </Menu>
 
           <Breadcrumbs className={classes.breadCrumbs1} aria-label="breadcrumb" separator="|" >
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Results"  style={{textDecoration:"none"}} />
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Our Result" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenutesti} style={{textDecoration:"none"}}/>  
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Career"  style={{textDecoration:"none"}} />
           </Breadcrumbs>
           <Button className={classes.button}endIcon={<PersonIcon />}>Sign In</Button>
