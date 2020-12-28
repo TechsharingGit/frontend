@@ -1,0 +1,11 @@
+.MuiPopover-root ul {
+  width: 278px;
+}
+.MuiPopover-root li {
+  font-size: 1rem;
+}
+.MuiListItem-root.Mui-selected,
+.MuiListItem-root.Mui-selected:hover {
+  background: none;
+  color: currentColor;
+}
