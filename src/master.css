@@ -24,7 +24,8 @@ a {
   background: #d9f7b7;
 }
 .footer_bg {
-  background: #f6f0b6;
+  /* background: #f6f0b6; */
+  background: #000;
 }
 
 /*======padding classes*/

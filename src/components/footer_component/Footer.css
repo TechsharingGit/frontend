@@ -1,10 +1,20 @@
 .footer_title h3 {
   padding: 10px 0;
   font-size: 16px;
-  color: #424242;
+  /* color: #424242; */
+  color: #fff;
 }
 .text-cenetr {
   text-align: center;
+}
+
+.image-icon {
+  opacity: 0.8;
+  width: 38px;
+}
+
+.image-icon:hover {
+  opacity: unset;
 }
 .socialLink li {
   display: inline-block;
@@ -15,7 +25,7 @@
   font-size: 26px;
 }
 .socialLink li .fa-facebook-square {
-  color: #2f42a0;
+  /* color: #2f42a0; */
 }
 .socialLink li .fa-google-plus-square {
   color: #d14b38;
@@ -30,6 +40,7 @@
   color: #27dee2;
 }
 .socialLink li .fa-facebook-square:hover {
+  background: #fff;
   color: #0e2494;
 }
 .socialLink li .fa-google-plus-square:hover {

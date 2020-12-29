@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBar:{
-    backgroundColor:'#d9f7b7',
+    backgroundColor:'#fff',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: 'flex-end',
   },
   button:{
-    backgroundColor:'#0fc54e',
+    backgroundColor:'#2995ff',
     border: 0,
     fontSize: 11,
     borderRadius: 10,
@@ -91,13 +91,14 @@ const themeInstance = {
 
 const StyledBreadcrumb = withStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.grey[100],
+    //backgroundColor: theme.palette.grey[100],
     height: theme.spacing(3),
     color: theme.palette.grey[800],
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight: 550, 
     seperator:">",
     '&:hover, &:focus': {
-      backgroundColor: theme.palette.grey[300],
+      background: '#fff',
+      color:'#2995ff',
     },
     '&:active': {
       boxShadow: theme.shadows[1],
@@ -270,7 +271,7 @@ const Header = () => {
     return (
       <List component="nav">
       <ListItem className="mobmenuItem" button>
-        <ListItemText primary="Director Message" />
+        <ListItemText primary="Director Message"/>
       </ListItem>
       <ListItem className="mobmenuItem" button>
         <ListItemText primary="School Partner's" />
@@ -332,12 +333,12 @@ const Header = () => {
           <Breadcrumbs className={classes.breadCrumbs} aria-label="breadcrumb" separator="|" style={{padding:"23px 0px 10px 23px"}}>
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Director Message"  style={{textDecoration:"none"}} />
               <StyledBreadcrumb className="menuList" component="a" href="#" label="School Partner's" style={{textDecoration:"none"}}/>
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Domains" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={handleRightClick} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Domains" onClick={handleRightClick} style={{textDecoration:"none"}}/>  
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Course Details"  style={{textDecoration:"none"}} />
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Student's Corner" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenu} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Student's Corner" onClick={opennextMenu} style={{textDecoration:"none"}}/>  
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Free Study Material"  style={{textDecoration:"none"}} />
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="News & Events" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenunews} style={{textDecoration:"none"}}/>  
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Reach Us" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenucontact} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="News & Events" onClick={opennextMenunews} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Reach Us" onClick={opennextMenucontact} style={{textDecoration:"none"}}/>  
           </Breadcrumbs>
           
           <Menu
@@ -433,7 +434,7 @@ const Header = () => {
 
           <Breadcrumbs className={classes.breadCrumbs1} aria-label="breadcrumb" separator="|" >
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Offerings"  style={{textDecoration:"none"}} />
-              <StyledBreadcrumb className="menuList" component="a" href="#" label="Our Result" deleteIcon={<ExpandMoreIcon style={{fontSize:"10px",position:'relative'}}/>} onDelete={handleClick} onClick={opennextMenutesti} style={{textDecoration:"none"}}/>  
+              <StyledBreadcrumb className="menuList" component="a" href="#" label="Our Result" onClick={opennextMenutesti} style={{textDecoration:"none"}}/>  
               <StyledBreadcrumb className="menuList" component="a" href="#" label="Career"  style={{textDecoration:"none"}} />
           </Breadcrumbs>
           <Button className={classes.button}endIcon={<PersonIcon />}>Sign In</Button>

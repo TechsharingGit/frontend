@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign:'center',
     height:'350px',
     width:'100%',
-    backgroundColor:'#4ec477',
+    // backgroundColor:'#4ec477',
     color:'#fff',
     fontSize:'4em',
     overflow:'default'
@@ -57,15 +57,13 @@ const Hero = () => {
                           variant="outlined"
                           size="large"
                           endIcon={<PlayArrowRoundedIcon />} >
-                      Get in on <br />
-                      Google Play
+                      Download
                   </Button>
                   <Button className={classes.heroButtons}
                           variant="outlined"
                           size="large"
                           endIcon={<AppleIcon />} >
-                    Get in on <br />
-                    App Store
+                    Download
                   </Button>
                 </div>
                 

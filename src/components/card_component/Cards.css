@@ -1,8 +1,9 @@
 .featureBox {
-  background: #021c33;
+  /* background: #021c33; */
+  background: #fff;
 }
 .featureBox h3 {
-  color: #fff;
+  color: #2995ff;
   font-size: 26px;
   margin-bottom: 25px;
   text-align: center;
@@ -23,13 +24,14 @@
   float: left;
 }
 .featureBox .testmText {
-  color: #fff;
+  /* color: #fff; */
+  color: #000;
 }
 .featureBox .nameElm {
   text-align: center;
   margin: 20px 0 10px 0;
   font-size: 18px;
-  color: #fff;
+  color: #2995ff;
 }
 .txt-cen {
   text-align: center;

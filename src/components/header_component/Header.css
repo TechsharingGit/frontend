@@ -19,7 +19,7 @@ div[role*="presentation"] li[role*="menuitem"]:hover {
   background: none !important;
 }
 .menuList:hover {
-  background: #e0e0e0 !important;
+  background: #fff !important;
 }
 .mobmenuItem {
   font-size: 14px !important;

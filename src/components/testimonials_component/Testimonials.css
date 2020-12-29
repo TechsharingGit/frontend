@@ -1,8 +1,9 @@
 .testimonial {
-  background: #d9f7b7;
+  /* background: #d9f7b7; */
+  background: #fff;
 }
 .testimonial h3 {
-  color: #333;
+  color: #2995ff;
   font-size: 26px;
   margin-bottom: 25px;
   text-align: center;
@@ -35,6 +36,7 @@
   margin-top: 5px;
   font-size: 18px;
   color: #777;
+  /* color: #2995ff; */
 }
 
 .testimonial .carousel-control-next,
@@ -42,7 +44,7 @@
   display: none;
 }
 .testimonial .carousel-indicators li {
-  background: #4ec477;
+  background: #2995ff;
 }
 
 @media only screen and (max-width: 640px) {
