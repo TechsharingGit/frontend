@@ -1,81 +1,74 @@
 import React from 'react'
-import { Carousel, CarouselItem } from 'react-bootstrap';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline } from '@material-ui/core';
-import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
-import AppleIcon from '@material-ui/icons/Apple';
 import './Hero.css';
-const com_logo = process.env.PUBLIC_URL + '/assets/images/';
-
-
-const useStyles = makeStyles((theme) => ({
-
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    margin: theme.spacing(1),
-    border:'1px solid #fff',
-    color:'#fff',
-
-    '&:hover, &:focus': {
-      backgroundColor: '#4ec477',
-      color:'#fff'
-    },
-    float:'left'
-  },
-  carousel:{
-    zIndex:"1",
-    display:'flex',
-    justifyContent:'center',
-    textAlign:'center',
-    height:'350px',
-    width:'100%',
-    // backgroundColor:'#4ec477',
-    color:'#fff',
-    fontSize:'4em',
-    overflow:'default'
-  },
-
-}));
+const images_path = process.env.PUBLIC_URL + '/assets/images/';
 
 const Hero = () => {
-  const classes =  useStyles();
   return (
-    <div>
-      <CssBaseline />
-      <Carousel className={classes.carousel} data-ride="carousel" >
-          <CarouselItem style={{height:'100%',position:'relative'}}>
-                <img style={{width:'100%',height:'100%',position:'relative',zIndex:'2'}} src={`${com_logo}slider_1.jpg`}/>
-                <div className="btnposition">
-                  <Button className={classes.heroButtons}
-                          variant="outlined"
-                          size="large"
-                          endIcon={<PlayArrowRoundedIcon />} >
-                      Download
-                  </Button>
-                  <Button className={classes.heroButtons}
-                          variant="outlined"
-                          size="large"
-                          endIcon={<AppleIcon />} >
-                    Download
-                  </Button>
+        <section className="slider-area">
+            <div className="hero-slide owl-dot-and-nav">
+                <div className="single-slide-item slide-bg1">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="section-heading">
+                                    <h2 className="section__title text-white">We Help You Learn <br/> What You Love</h2>
+                                    <p className="section__desc">Emply dummy text of the printing and typesetting industry orem Ipsum has been the
+                                        <br/>industry's standard dummy text ever sinceprinting and typesetting industry.
+                                    </p>
+                                </div>
+                                <div className="btn-box data_flex align-items-center">
+                                    <a href="admission.html" className="theme-btn theme-btn-hover-light">let's join</a>
+                                    <a href="#" style={{display:'inline'}} className="btn-text video-play-btn ml-4" data-fancybox="video" data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk" data-speed="700">
+                                        Watch Preview<i className="fa fa-play icon-btn ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-          </CarouselItem>          
-          <CarouselItem style={{height:'100%'}}><img style={{width:'100%',height:'100%'}} src={`${com_logo}slider_2.jpg`}/></CarouselItem>
-          <CarouselItem style={{height:'100%'}}><img style={{width:'100%',height:'100%'}} src={`${com_logo}slider_3.jpg`}/></CarouselItem>
-          <CarouselItem style={{height:'100%'}}><img style={{width:'100%',height:'100%'}} src={`${com_logo}slider_4.jpg`}/></CarouselItem>
-      </Carousel> 
-    
-    </div>
-  )
+                <div className="single-slide-item slide-bg2">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="section-heading text-center">
+                                    <h2 className="section__title text-white">Join Aduca & Get <br/> Your Free Courses!</h2>
+                                    <p className="section__desc">Emply dummy text of the printing and typesetting industry orem Ipsum has been the
+                                        <br/>industry's standard dummy text ever sinceprinting and typesetting industry.
+                                    </p>
+                                </div>
+                                <div className="btn-box data_flex align-items-center justify-content-center">
+                                    <a href="admission.html" className="theme-btn theme-btn-hover-light">get started</a>
+                                    <a href="#" style={{display:'inline'}} className="btn-text video-play-btn ml-4" data-fancybox="video" data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk" data-speed="700">
+                                        Watch Preview<i className="fa fa-play icon-btn ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="single-slide-item slide-bg3">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="section-heading text-right">
+                                    <h2 className="section__title text-white">Learn Anything, <br/> Anytime, Anywhere</h2>
+                                    <p className="section__desc">Emply dummy text of the printing and typesetting industry orem Ipsum has been the
+                                        <br/>industry's standard dummy text ever sinceprinting and typesetting industry.
+                                    </p>
+                                </div>
+                                <div className="btn-box hero-btn-right data_flex align-items-center justify-content-end">
+                                    <a href="admission.html" className="theme-btn theme-btn-hover-light">get enrolled</a>
+                                    <a href="#" style={{display:'inline'}} className="btn-text video-play-btn ml-4" data-fancybox="video" data-src="https://www.youtube.com/watch?v=cRXm1p-CNyk" data-speed="700">
+                                      Watch Preview <i className="fa fa-play icon-btn ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  );
 }
 
 export default Hero
-
