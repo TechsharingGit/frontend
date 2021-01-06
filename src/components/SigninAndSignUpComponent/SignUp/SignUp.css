@@ -9,3 +9,29 @@
   background: none;
   color: currentColor;
 }
+.MuiDialogActions-root {
+  padding: 16px !important;
+}
+.makeStyles-error-21 {
+  position: absolute;
+}
+
+.makeStyles-root-16 {
+  width: 66% !important;
+}
+
+.makeStyles-root-16 > * {
+  width: 56% !important;
+}
+.MuiDialog-paper {
+  margin: 0px !important;
+}
+.MuiDialog-paperScrollPaper {
+  display: inline-table !important;
+}
+.MuiFormControl-root {
+  flex-direction: row !important;
+}
+.MuiSelect-select {
+  min-width: 50px !important;
+}

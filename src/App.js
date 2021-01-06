@@ -7,9 +7,11 @@ import Chatbott from './components/chatbot_component/Chatbott';
 import Offering from './components/offering_component/Offering';
 import Ourresult from './components/ourresult_component/Ourresult';
 import Director from './components/director_component/Director';
-import Career from './components/schoolpartner_component/Career';
+// import Career from './components/schoolpartner_component/Career';
 import Expertcounselling from './components/expertcounselling_component/Expertcounselling';
 import SignUp from './components/SigninAndSignUpComponent/SignUp/SignUp';
+import partners from './Pages/partners';
+import Partners from './components/schoolpartner_component/partners/Partners';
 const script_path = process.env.PUBLIC_URL + '/assets/js/';
 
 const App = () => {
@@ -34,11 +36,15 @@ const App = () => {
               <Director />
             </Route>
             <Route path="/career">
-              <Career />
+              {/* <Career /> */}
             </Route>
             <Route path="/expert">
               <Expertcounselling />
             </Route>
+            <Route path="/schoolpartner">
+              <Partners />
+            </Route>
+            
           </Switch>
 
           <SignUp/>

@@ -58,7 +58,7 @@ const Header = () => {
                                         <div className="col-lg-5">
                                             <ul className="subMenuParent">
                                                 <li><Link to="/directormsg">Director Message</Link></li>
-                                                <li><Link to="/offering">School Partner's</Link></li>
+                                                <li><Link to="/schoolpartner">School Partner's</Link></li>
                                             </ul>
                                         </div>
                                         <div className="col-lg-2">
@@ -98,7 +98,7 @@ const Header = () => {
                         <nav className="main-menu mobileMenu">
                             <ul>
                                 <li><Link to="/directormsg">Director Message</Link></li>
-                                <li><Link to="/schoolpart">School Partner's</Link></li>
+                                <li><Link to="/schoolpartner">School Partner's</Link></li>
                                 <li>
                                     <Link to="/domains">Domains</Link>
                                     <ul className="dropdown-menu-item">
